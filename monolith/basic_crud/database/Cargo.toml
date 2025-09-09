@@ -1,0 +1,13 @@
+[package]
+name = "database"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "database"
+crate-type = [ "cdylib" ]
+
+[dependencies]
+sqlx = { version = "0.8.6", features = [ "sqlite", "runtime-tokio", "macros" ] }
+pyo3 = { version = "0.26.0", features = [ "extension-module" ] }
+sea-query = "1.0.0-rc.1"
