@@ -1,9 +1,0 @@
-/data/data/com.termux/files/home/portafolio/fastapi_portfolio/monolith/basic_crud/database/target/debug/deps/event_listener-364f236410ff414f.d: /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/lib.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/intrusive.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/notify.rs
-
-/data/data/com.termux/files/home/portafolio/fastapi_portfolio/monolith/basic_crud/database/target/debug/deps/libevent_listener-364f236410ff414f.rlib: /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/lib.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/intrusive.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/notify.rs
-
-/data/data/com.termux/files/home/portafolio/fastapi_portfolio/monolith/basic_crud/database/target/debug/deps/libevent_listener-364f236410ff414f.rmeta: /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/lib.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/intrusive.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/notify.rs
-
-/data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/lib.rs:
-/data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/intrusive.rs:
-/data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.1/src/notify.rs:

@@ -1,9 +1,0 @@
-/data/data/com.termux/files/home/portafolio/fastapi_portfolio/monolith/basic_crud/database/target/debug/deps/find_msvc_tools-4ef80563b9aceb8c.d: /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/lib.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/find_tools.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/tool.rs
-
-/data/data/com.termux/files/home/portafolio/fastapi_portfolio/monolith/basic_crud/database/target/debug/deps/libfind_msvc_tools-4ef80563b9aceb8c.rlib: /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/lib.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/find_tools.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/tool.rs
-
-/data/data/com.termux/files/home/portafolio/fastapi_portfolio/monolith/basic_crud/database/target/debug/deps/libfind_msvc_tools-4ef80563b9aceb8c.rmeta: /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/lib.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/find_tools.rs /data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/tool.rs
-
-/data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/lib.rs:
-/data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/find_tools.rs:
-/data/data/com.termux/files/home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/find-msvc-tools-0.1.1/src/tool.rs:
