@@ -1,0 +1,6 @@
+estoy haciendo esto a las 4 am por temas de horario, en breves dormire, al despertar y terminar lo que tenga que hacer continuare creando esto
+
+no deberia tardar mas de unas horas en tener algunos proyectos desde "basicos"
+con cosas avanzadas como desde base el uso de 2 lenguajes por proyecto (rust + python)
+con cosas mas diversas como la arquitectura pragmatica derivada de mi experiencia con
+otros lenguajes, etc
