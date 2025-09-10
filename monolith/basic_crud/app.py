@@ -18,6 +18,7 @@ app: FastAPI = FastAPI(
 
 DATABASE: TasksDB = TasksDB()
 
+
 @app.post('/')
 def create(t: Task) -> int:
     try:
