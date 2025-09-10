@@ -30,7 +30,7 @@ impl TasksDB {
             .unwrap()
     }
 
-    pub fn create_table(pool: &Pool<Sqlite>) -> Result<(), String> {
+    pub async fn create_table(pool: &Pool<Sqlite>) -> Result<(), String> {
         use sea_query::ColumnDef;
 
         let sql = Table::create()
@@ -38,18 +38,15 @@ impl TasksDB {
             .if_not_exists()
             .col(
                 ColumnDef::new(Tasks::Id)
-                    .unique_key()
                     .integer()
-                    .not_null()
+                    .primary_key()
                     .auto_increment(),
             )
-            .col(ColumnDef::new(Tasks::Title).string().not_null())
-            .col(ColumnDef::new(Tasks::Content).string().not_null())
+            .col(ColumnDef::new(Tasks::Title).text().not_null())
+            .col(ColumnDef::new(Tasks::Content).text().not_null())
             .to_string(SqliteQueryBuilder);
 
-        futures::executor::block_on(async {
-            sqlx::query(&sql).execute(pool).await.unwrap();
-        });
+        sqlx::query(&sql).execute(pool).await.unwrap();
         Ok(())
     }
 }

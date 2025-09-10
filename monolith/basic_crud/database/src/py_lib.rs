@@ -1,8 +1,9 @@
-use futures::executor::block_on;
 use pyo3::prelude::*;
 use sea_query::{Expr, ExprTrait, Query, SqliteQueryBuilder};
 use sqlx::{Pool, Sqlite};
+use tokio::runtime::Runtime;
 
+// ~>
 use crate::core::Tasks;
 
 // <·
@@ -11,17 +12,22 @@ type Task = (i32, String, String);
 #[pyclass]
 pub struct TasksDB {
     pub pool: Pool<Sqlite>,
+    runtime: Runtime,
 }
 
 #[pymethods]
 impl TasksDB {
     #[new]
     pub fn new() -> Self {
-        let pool = futures::executor::block_on(async { TasksDB::get_pool().await });
+        let runtime = Runtime::new().unwrap();
+        let pool = runtime.block_on(async { Self::get_pool().await });
 
-        let _ = TasksDB::create_table(&pool);
+        let _ = runtime.block_on(async { TasksDB::create_table(&pool).await });
 
-        Self { pool: pool }
+        Self {
+            pool: pool,
+            runtime: runtime,
+        }
     }
 
     fn create(&self, title: String, content: String) -> PyResult<Task> {
@@ -32,7 +38,7 @@ impl TasksDB {
             .returning_all()
             .to_string(SqliteQueryBuilder);
 
-        let res = block_on(async {
+        let res = self.runtime.block_on(async {
             sqlx::query_as::<_, Task>(&sql)
                 .fetch_one(&self.pool)
                 .await
@@ -48,7 +54,7 @@ impl TasksDB {
             .from(Tasks::Table)
             .to_string(SqliteQueryBuilder);
 
-        let res = block_on(async {
+        let res = self.runtime.block_on(async {
             sqlx::query_as::<_, Task>(&sql)
                 .fetch_all(&self.pool)
                 .await
@@ -58,16 +64,16 @@ impl TasksDB {
         Ok(res)
     }
 
-    fn read_one(&self, id: i32) -> PyResult<Task> {
+    fn read_one(&self, id: i32) -> PyResult<Option<Task>> {
         let sql = Query::select()
             .columns([Tasks::Id, Tasks::Title, Tasks::Content])
             .and_where(Expr::col(Tasks::Id).eq(Expr::val(id)))
             .from(Tasks::Table)
             .to_string(SqliteQueryBuilder);
 
-        let res = block_on(async {
+        let res = self.runtime.block_on(async {
             sqlx::query_as::<_, Task>(&sql)
-                .fetch_one(&self.pool)
+                .fetch_optional(&self.pool)
                 .await
                 .unwrap()
         });
@@ -83,7 +89,7 @@ impl TasksDB {
             .returning_all()
             .to_string(SqliteQueryBuilder);
 
-        let res = block_on(async {
+        let res = self.runtime.block_on(async {
             sqlx::query_as::<_, Task>(&sql)
                 .fetch_optional(&self.pool)
                 .await
@@ -99,7 +105,7 @@ impl TasksDB {
             .and_where(Expr::col(Tasks::Id).eq(Expr::val(id)))
             .to_string(SqliteQueryBuilder);
 
-        let res = block_on(async {
+        let res = self.runtime.block_on(async {
             sqlx::query(&sql)
                 .execute(&self.pool)
                 .await

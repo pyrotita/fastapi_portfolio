@@ -1,5 +1,9 @@
 from typing import Annotated
-from pydantic import BaseModel, StringConstraints
+from pydantic import (
+    StringConstraints,
+    PositiveInt,
+    BaseModel,
+)
 
 class Task(BaseModel):
     title: Annotated[str, StringConstraints(
@@ -13,3 +17,6 @@ class Task(BaseModel):
         max_length=2**16,
         strict=True,
     )]
+
+class UpdateTask(Task):
+    id: Annotated[int, PositiveInt]
