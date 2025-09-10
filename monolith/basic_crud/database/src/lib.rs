@@ -1,13 +1,11 @@
 use pyo3::prelude::*;
 
-mod app;
 mod core;
+mod py_lib;
 
 #[pymodule]
-fn main(m: &Bound<'_, PyModule>) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(app::create, m)?)?;
-    m.add_function(wrap_pyfunction!(app::read, m)?)?;
-    m.add_function(wrap_pyfunction!(app::delete, m)?)?;
-    m.add_function(wrap_pyfunction!(app::update, m)?)?;
+fn database(m: &Bound<'_, PyModule>) -> PyResult<()> {
+    let _ = m.add_class::<crate::py_lib::TasksDB>()?;
+
     Ok(())
 }

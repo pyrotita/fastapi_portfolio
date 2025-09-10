@@ -9,7 +9,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 sqlx = { version = "0.8.6", features = [ "sqlite", "runtime-tokio", "macros" ] }
-pyo3-asyncio = { version = "0.20", features = ["tokio-runtime", "attributes"] }
-pyo3 = { version = "0.20.0", features = ["extension-module"] }
-tokio = { version = "1", features = [ "full" ] }
+pyo3 = { version = "0.24.1", features = ["extension-module"] }
 sea-query = "1.0.0-rc.1"
+dotenvy = "0.15"
+futures = "0.3.31"
