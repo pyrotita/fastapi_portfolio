@@ -1,8 +1,17 @@
+from typing import Any
 from uuid import uuid4
 
 import datetime
 import jwt
 import os
+
+
+#~x
+from utils.result import (
+    Result,
+    Err,
+    Ok,
+)
 
 
 # <·
@@ -43,21 +52,24 @@ class JwtHandler:
         )
 
 
-    def read_jwt(self, token: str):
+    def read_jwt(self, token: str) -> Result[Any, str]:
         try:
             decode_payload = jwt.decode(
                 algorithms=[self.__algorithm],
                 key=self.__secret,
                 jwt=token,
             )
-
-            return decode_payload
+            return Ok(decode_payload)
 
         except jwt.ExpiredSignatureError as e:
             print(e)
+            return Err(error='Token expired')
 
         except jwt.InvalidTokenError as e:
             print(e)
+            return Err('Invalid Token')
 
         except Exception as e:
             print(e)
+            return Err('Unknown error relationed with jwt')
+
