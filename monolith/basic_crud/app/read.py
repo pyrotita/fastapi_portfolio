@@ -1,5 +1,5 @@
-from typing import Optional
 from fastapi import APIRouter, HTTPException
+from typing import Optional
 
 
 #¿?
@@ -16,12 +16,13 @@ class ReadTask(EndPoint):
         self.__task_db: TasksDB = database
 
         super().__init__(
-            method='{iden}',
+            route='/{iden}',
+            method='get',
             app=app,
         )
 
 
-    def endpoint(self, iden: int) -> Optional[tuple]:
+    def endpoint(self, iden: int) -> Optional[tuple]: # type: ignore
         try:
             return self.__task_db.read_one(iden)
 
@@ -32,5 +33,6 @@ class ReadTask(EndPoint):
                 detail='Internal error',
                 status_code=500,
             )
+
 
 

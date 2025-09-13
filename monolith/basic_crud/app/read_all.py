@@ -7,27 +7,22 @@ from database import TasksDB
 
 #~>
 from src.endpoint import EndPoint
-from models import Task
-
 
 
 #<·
-class CreateTask(EndPoint):
+class ReadAllTask(EndPoint):
     def __init__(self, app: APIRouter, database: TasksDB) -> None:
         self.__task_db: TasksDB = database
 
         super().__init__(
-            method='post',
+            method='get',
             app=app,
         )
 
 
-    def endpoint(self, task: Task) -> int: # type: ignore
+    def endpoint(self) -> list[tuple]: # type: ignore
         try:
-            return self.__task_db.create(
-                title=task.title,
-                content=task.content,
-            )[0]
+            return self.__task_db.read_all()
 
         except Exception as e:
             print(e)
@@ -36,3 +31,5 @@ class CreateTask(EndPoint):
                 detail='Internal error',
                 status_code=500,
             )
+
+
