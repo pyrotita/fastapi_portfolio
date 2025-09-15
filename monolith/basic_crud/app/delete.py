@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import PositiveInt
 from typing import Optional
 
@@ -22,7 +22,7 @@ class DeleteTask(EndPoint):
         )
 
 
-    def endpoint(self, id: PositiveInt) -> Optional[int]: # type: ignore
+    def endpoint(self, id: PositiveInt, _: Depends(self._exec_middlewares())) -> Optional[int]: # type: ignore
         try:
             return self.__task_db.delete(id=id)
 

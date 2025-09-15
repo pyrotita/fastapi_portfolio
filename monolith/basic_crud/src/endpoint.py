@@ -2,7 +2,6 @@ from fastapi import APIRouter, HTTPException, Request
 from typing import Any
 
 
-
 #<·
 class EndPoint:
     def __init__(
@@ -25,13 +24,16 @@ class EndPoint:
         return self
 
 
-    def _exec_middlewares(self, req: Request) -> None:
-        for middleware in self._middlewares:
-            if ( err_mw := middleware(req) ).is_err():
-                raise HTTPException(
-                    detail=err_mw.error,
-                    status_code=401,
-                )
+    def _exec_middlewares(self, req: Request):
+        def wrapp() -> None:
+            for middleware in self._middlewares:
+                if ( err_mw := middleware(req) ).is_err():
+                    raise HTTPException(
+                        detail=err_mw.error,
+                        status_code=401,
+                    )
+
+        return wrapp
 
 
     def build(self) -> None:
