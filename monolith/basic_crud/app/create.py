@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, HTTPException
 
 
 #¿?
@@ -22,7 +22,7 @@ class CreateTask(EndPoint):
         )
 
 
-    def endpoint(self, task: Task, _: Depends(self._exec_middlewares())) -> int: # type: ignore
+    def endpoint(self, task: Task) -> int: # type: ignore
         try:
             return self.__task_db.create(
                 title=task.title,

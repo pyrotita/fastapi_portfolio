@@ -1,4 +1,9 @@
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import (
+    HTTPException,
+    APIRouter,
+    Request,
+    Depends,
+)
 from typing import Any
 
 
@@ -24,23 +29,21 @@ class EndPoint:
         return self
 
 
-    def _exec_middlewares(self, req: Request):
-        def wrapp() -> None:
-            for middleware in self._middlewares:
-                if ( err_mw := middleware(req) ).is_err():
-                    raise HTTPException(
-                        detail=err_mw.error,
-                        status_code=401,
-                    )
-
-        return wrapp
+    def _exec_middlewares(self, req: Request) -> None:
+        for middleware in self._middlewares:
+            if ( err_mw := middleware(req) ).is_err():
+                raise HTTPException(
+                    detail=err_mw.error,
+                    status_code=401,
+                )
 
 
     def build(self) -> None:
         self._app.add_api_route(
-            path=self._route,
+            dependencies=[Depends(self._exec_middlewares)],
             methods=[self._method.upper()],
             endpoint=self.endpoint,
+            path=self._route,
         )
 
 
