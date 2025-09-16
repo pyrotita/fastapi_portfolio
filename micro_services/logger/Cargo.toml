@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-actix-web = { version = "4" }
 sqlx = { version = "0.8.6", features = [ "sqlite", "runtime-tokio", "macros" ] }
 tokio = { version = "1.47.1", features = [ "full" ]}
 sea-query = "1.0.0-rc.1"
+actix-web = "4"
