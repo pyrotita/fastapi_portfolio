@@ -12,5 +12,4 @@ sqlx = { version = "0.8.6", features = [ "sqlite", "runtime-tokio", "macros" ] }
 pyo3 = { version = "0.24.1", features = ["extension-module"] }
 tokio = { version = "1.47.1", features = [ "full" ]}
 sea-query = "1.0.0-rc.1"
-once_cell = "1.21.3"
 dotenvy = "0.15"
