@@ -18,5 +18,6 @@ class Task(BaseModel):
         strict=True,
     )]
 
+
 class UpdateTask(Task):
     id: Annotated[int, PositiveInt]

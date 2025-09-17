@@ -35,34 +35,4 @@ for endpoint_cls in endpoints:
         app=router,
     ).use_mw(middlewares=[log_mw]).build()
 
-"""
-CreateTask(
-    database=DATABASE,
-    app=router,
-).use_mw(middlewares=[log_mw]).build()
-
-
-ReadAllTask(
-    database=DATABASE,
-    app=router,
-).use_mw(middlewares=[log_mw]).build()
-
-
-DeleteTask(
-    database=DATABASE,
-    app=router,
-).use_mw(middlewares=[log_mw]).build()
-
-
-ModifyTask(
-    database=DATABASE,
-    app=router,
-).use_mw(middlewares=[log_mw]).build()
-
-
-ReadTask(
-    database=DATABASE,
-    app=router,
-).use_mw(middlewares=[log_mw]).build()
-"""
 
