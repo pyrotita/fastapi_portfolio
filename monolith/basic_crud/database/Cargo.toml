@@ -8,8 +8,13 @@ name = "database"
 crate-type = ["cdylib"]
 
 [dependencies]
+# sql interaction
 sqlx = { version = "0.8.6", features = [ "sqlite", "runtime-tokio", "macros" ] }
-pyo3 = { version = "0.24.1", features = ["extension-module"] }
-tokio = { version = "1.47.1", features = [ "full" ]}
 sea-query = "1.0.0-rc.1"
+
+# python bind
+pyo3 = { version = "0.24.1", features = ["extension-module"] }
+
+# runtime and utils from usefully librar
+tokio = { version = "1.47.1", features = [ "full" ]}
 dotenvy = "0.15"

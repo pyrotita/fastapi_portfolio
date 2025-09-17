@@ -1,0 +1,7 @@
+esta carpeta contendra proyectos de tipo monolito (es raro que trabaje con ellos, por eso tardo creandolos) 
+donde abarcare distintos sistemas de tamaño variado como cruds simples hasta apps completas
+
+Proyectos previstos:
+- ToDo [simple]
+- Blog [simple]
+- .? [mid]

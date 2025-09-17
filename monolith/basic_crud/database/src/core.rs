@@ -17,7 +17,7 @@ impl TasksDB {
     fn get_database_url() -> String {
         dotenvy::dotenv().ok();
 
-        std::env::var("DATABASE_URL").unwrap_or("sqlite://do.db".into())
+        std::env::var("DATABASE_URL").unwrap_or("sqlite://task.db".into())
     }
 
     pub async fn get_pool() -> Pool<Sqlite> {
